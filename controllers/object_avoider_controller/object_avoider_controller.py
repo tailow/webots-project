@@ -1,5 +1,5 @@
 """object_avoider_controller controller."""
-from controller import Robot, Motor
+from controller import Robot, Motor, DistanceSensor
 
 # create the Robot instance.
 robot = Robot()
@@ -10,6 +10,10 @@ timestep = 64
 right_motor = robot.getDevice("motor_1")
 left_motor = robot.getDevice("motor_2")
 
+front_sensor = robot.getDevice("ds1")
+
+front_sensor.enable(1)
+
 right_motor.setPosition(float('inf'))
 left_motor.setPosition(float('inf'))
 
@@ -18,4 +22,6 @@ left_motor.setVelocity(1.0)
 
 # Main loop:
 while robot.step(timestep) != -1:
+    print(front_sensor.getValue())
+
     pass

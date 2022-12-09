@@ -1,4 +1,4 @@
-#VRML_SIM R2022b utf8
+#VRML_SIM R2023a utf8
 
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackground.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
@@ -7,8 +7,8 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/project
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.2192902221405084 -0.5065026003304149 0.8338866315825518 5.3714204889345485
-  position -0.4229661197921176 0.418573939330929 0.3566731552897458
+  orientation -0.019308371374366497 -0.996303806822739 -0.08370132200502078 5.800251917606481
+  position -1.1143348911843722 -0.11466802737693046 0.6167353093042428
 }
 TexturedBackground {
 }
@@ -20,6 +20,15 @@ RectangleArena {
 Robot {
   rotation 0 1 0 0
   children [
+    DistanceSensor {
+      translation 0 -0.05 0.04
+      rotation 0 0 1 -1.5707953071795862
+      name "ds1"
+      recognitionColors [
+        1 0 0
+      ]
+      type "laser"
+    }
     DEF Body Transform {
       translation 0 0 0.04
       children [
