@@ -7,8 +7,8 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/project
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.019308371374366497 -0.996303806822739 -0.08370132200502078 5.800251917606481
-  position -1.1143348911843722 -0.11466802737693046 0.6167353093042428
+  orientation -0.007979425449207395 0.9914308704298637 0.13038848848032303 0.4548585997615166
+  position -1.142239972573004 -0.0887984770165703 0.4748169293907456
 }
 TexturedBackground {
 }
@@ -24,6 +24,24 @@ Robot {
       translation 0 -0.05 0.04
       rotation 0 0 1 -1.5707953071795862
       name "ds1"
+      recognitionColors [
+        1 0 0
+      ]
+      type "laser"
+    }
+    DistanceSensor {
+      translation 0.03 -0.04 0.04
+      rotation 0 0 1 -0.9163003061004252
+      name "ds2"
+      recognitionColors [
+        1 0 0
+      ]
+      type "laser"
+    }
+    DistanceSensor {
+      translation -0.03 -0.04 0.04
+      rotation 0 0 1 -2.2252996938995744
+      name "ds3"
       recognitionColors [
         1 0 0
       ]

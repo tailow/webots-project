@@ -11,8 +11,12 @@ right_motor = robot.getDevice("motor_1")
 left_motor = robot.getDevice("motor_2")
 
 front_sensor = robot.getDevice("ds1")
+front_left_sensor = robot.getDevice("ds2")
+front_right_sensor = robot.getDevice("ds3")
 
 front_sensor.enable(1)
+front_left_sensor.enable(1)
+front_right_sensor.enable(1)
 
 right_motor.setPosition(float('inf'))
 left_motor.setPosition(float('inf'))
@@ -22,6 +26,4 @@ left_motor.setVelocity(1.0)
 
 # Main loop:
 while robot.step(timestep) != -1:
-    print(front_sensor.getValue())
-
     pass
