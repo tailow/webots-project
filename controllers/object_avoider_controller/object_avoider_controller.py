@@ -26,19 +26,31 @@ left_motor.setPosition(float('inf'))
 right_motor.setVelocity(MAX_SPEED)
 left_motor.setVelocity(MAX_SPEED)
 
+def turn_left():
+    right_motor.setVelocity(MAX_SPEED / 2)
+    left_motor.setVelocity(-MAX_SPEED / 2)
+   
+def turn_right():
+    right_motor.setVelocity(-MAX_SPEED / 2)
+    left_motor.setVelocity(MAX_SPEED / 2)
+    
+def go_straight():
+    right_motor.setVelocity(MAX_SPEED)
+    left_motor.setVelocity(MAX_SPEED)
+
 # Main loop:
 while robot.step(timestep) != -1:
     fl_value = front_left_sensor.getValue() / 1000
     fr_value = front_right_sensor.getValue() / 1000
     f_value = front_sensor.getValue() / 1000
 
+    # obstacle avoidance
     if f_value < 1 or fl_value < 1 or fr_value < 1:
         if fr_value < fl_value:
-            right_motor.setVelocity(-MAX_SPEED / 2)
-            left_motor.setVelocity(MAX_SPEED / 2)
+            turn_right()
         else:
-            right_motor.setVelocity(MAX_SPEED / 2)
-            left_motor.setVelocity(-MAX_SPEED / 2)
+            turn_left()
+            
+    # drive straight
     else:
-        right_motor.setVelocity(MAX_SPEED)
-        left_motor.setVelocity(MAX_SPEED)
+        go_straight()

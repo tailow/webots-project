@@ -7,8 +7,8 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/project
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.008544849234465446 -0.0010505246280998913 -0.999962940288072 4.6606271881985215
-  position 0.031697051033624794 -0.5671017978573424 0.061256738573256635
+  orientation 0.08671878129691395 -0.6922352001168733 -0.7164427965228837 5.848224267599175
+  position -0.6684067005616044 -0.24557678691807028 0.25074567467056946
   follow "robot"
 }
 TexturedBackground {
@@ -21,6 +21,9 @@ RectangleArena {
 Robot {
   rotation 0 1 0 0
   children [
+    Compass {
+      translation 0 0 0.03
+    }
     DistanceSensor {
       translation 0 -0.05 0.03
       rotation 0 0 1 -1.5707953071795862
@@ -102,7 +105,7 @@ Robot {
       ]
       endPoint Solid {
         translation -0.0550000162917492 -4.92205711089888e-06 0.029996799903942335
-        rotation -0.6624293393876601 -0.3498167885776644 -0.6624315698603425 3.814613740220351
+        rotation -0.6624293393876606 -0.34981678857766424 -0.6624315698603421 3.814613740220351
         children [
           DEF Wheel Shape {
             appearance PBRAppearance {
