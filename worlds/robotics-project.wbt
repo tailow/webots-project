@@ -7,8 +7,9 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/project
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.007979425449207395 0.9914308704298637 0.13038848848032303 0.4548585997615166
-  position -1.142239972573004 -0.0887984770165703 0.4748169293907456
+  orientation -0.008544849234465446 -0.0010505246280998913 -0.999962940288072 4.6606271881985215
+  position 0.031697051033624794 -0.5671017978573424 0.061256738573256635
+  follow "robot"
 }
 TexturedBackground {
 }
@@ -21,7 +22,7 @@ Robot {
   rotation 0 1 0 0
   children [
     DistanceSensor {
-      translation 0 -0.05 0.04
+      translation 0 -0.05 0.03
       rotation 0 0 1 -1.5707953071795862
       name "ds1"
       recognitionColors [
@@ -30,7 +31,7 @@ Robot {
       type "laser"
     }
     DistanceSensor {
-      translation 0.03 -0.04 0.04
+      translation 0.03 -0.05 0.03
       rotation 0 0 1 -0.9163003061004252
       name "ds2"
       recognitionColors [
@@ -39,7 +40,7 @@ Robot {
       type "laser"
     }
     DistanceSensor {
-      translation -0.03 -0.04 0.04
+      translation -0.03 -0.04 0.03
       rotation 0 0 1 -2.2252996938995744
       name "ds3"
       recognitionColors [
@@ -48,7 +49,7 @@ Robot {
       type "laser"
     }
     DEF Body Transform {
-      translation 0 0 0.04
+      translation 0 0 0.0301
       children [
         Shape {
           appearance PBRAppearance {
@@ -63,7 +64,7 @@ Robot {
     }
     HingeJoint {
       jointParameters HingeJointParameters {
-        anchor 0.05 0 0.03
+        anchor 0.055 0 0.03
       }
       device [
         RotationalMotor {
@@ -71,8 +72,8 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation 0.04999999967810775 7.998302968757473e-15 0.03002946410012402
-        rotation 1.0890263893082967e-10 1 1.0890335785348019e-10 1.5707996938982285
+        translation 0.055229279764097416 -4.427047951798458e-06 0.03004970938945427
+        rotation 0 1 0 1.5707996938995747
         children [
           DEF Wheel Shape {
             appearance PBRAppearance {
@@ -92,7 +93,7 @@ Robot {
     }
     HingeJoint {
       jointParameters HingeJointParameters {
-        anchor -0.05 0 0.03
+        anchor -0.055 0 0.03
       }
       device [
         RotationalMotor {
@@ -100,8 +101,8 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation -0.04999999966958913 -4.806488272386126e-14 0.03002946440452995
-        rotation 1.1577208997980834e-10 1 1.157729154547616e-10 1.5707996938841697
+        translation -0.0550000162917492 -4.92205711089888e-06 0.029996799903942335
+        rotation -0.6624293393876601 -0.3498167885776644 -0.6624315698603425 3.814613740220351
         children [
           DEF Wheel Shape {
             appearance PBRAppearance {
@@ -123,7 +124,6 @@ Robot {
   ]
   boundingObject USE Body
   physics Physics {
-    mass 1
     centerOfMass [
       0 0 0
     ]
