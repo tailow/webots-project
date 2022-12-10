@@ -2,21 +2,17 @@
 
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackground.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/floors/protos/RectangleArena.proto"
 
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.08671878129691395 -0.6922352001168733 -0.7164427965228837 5.848224267599175
-  position -0.6684067005616044 -0.24557678691807028 0.25074567467056946
+  orientation -0.29929658071244464 -0.07160034675126543 0.9514698876574799 3.621531781640891
+  position 0.7076181250958246 0.4265026596073207 0.6229844173142738
   follow "robot"
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
-}
-RectangleArena {
-  floorSize 2 2
 }
 Robot {
   rotation 0 1 0 0
@@ -34,7 +30,7 @@ Robot {
       type "laser"
     }
     DistanceSensor {
-      translation 0.03 -0.05 0.03
+      translation 0.03 -0.04 0.03
       rotation 0 0 1 -0.9163003061004252
       name "ds2"
       recognitionColors [
@@ -105,7 +101,7 @@ Robot {
       ]
       endPoint Solid {
         translation -0.0550000162917492 -4.92205711089888e-06 0.029996799903942335
-        rotation -0.6624293393876606 -0.34981678857766424 -0.6624315698603421 3.814613740220351
+        rotation -0.6624293393876608 -0.3498167885776642 -0.662431569860342 3.814613740220351
         children [
           DEF Wheel Shape {
             appearance PBRAppearance {
@@ -132,4 +128,34 @@ Robot {
     ]
   }
   controller "object_avoider_controller"
+}
+Solid {
+  children [
+    DEF Floor Shape {
+      appearance PBRAppearance {
+        baseColor 0.8 1 1
+        roughness 1
+      }
+      geometry Plane {
+      }
+    }
+  ]
+  name "floor"
+  boundingObject USE Floor
+}
+Solid {
+  translation 0 -0.45 0.05
+  children [
+    DEF Floor Shape {
+      appearance PBRAppearance {
+        baseColor 0.9 1 1
+        roughness 1
+      }
+      geometry Box {
+        size 1 0.1 0.1
+      }
+    }
+  ]
+  name "wall"
+  boundingObject USE Floor
 }
