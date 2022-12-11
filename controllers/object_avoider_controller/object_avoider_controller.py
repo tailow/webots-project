@@ -1,15 +1,14 @@
 """object_avoider_controller controller."""
 from controller import Robot, Motor, DistanceSensor
 
-# create the Robot instance.
 robot = Robot()
 
-# get the time step of the current world.
 timestep = 64
 
 MAX_SPEED = 6.28
 MIN_DIST = 0.3
 
+# initialize components
 right_motor = robot.getDevice("motor_1")
 left_motor = robot.getDevice("motor_2")
 
@@ -45,7 +44,7 @@ def go_straight():
     right_motor.setVelocity(MAX_SPEED)
     left_motor.setVelocity(MAX_SPEED)
 
-# Main loop:
+# main loop
 while robot.step(timestep) != -1:
     fl_value = front_left_sensor.getValue() / 1000
     fr_value = front_right_sensor.getValue() / 1000
@@ -53,15 +52,12 @@ while robot.step(timestep) != -1:
     d_value = down_sensor.getValue() / 1000
     l_value = left_sensor.getValue() / 1000
     r_value = right_sensor.getValue() / 1000
-    
-    sensor_values = [fl_value, fr_value, f_value, l_value, r_value]
-  
+
     # obstacle avoidance
-    for value in sensor_values:
-        if value < MIN_DIST or d_value > 0.35:
+    if f_value < MIN_DIST or fl_value < MIN_DIST or fr_value < MIN_DIST or l_value < MIN_DIST or r_value < MIN_DIST or d_value > 0.35:
+        if fl_value + l_value < fr_value + r_value:
             turn_right()
-            break
-            
-    # drive straight
-    else:
+        else:
+            turn_left()
+    else:  
         go_straight()

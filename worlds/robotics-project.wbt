@@ -3,13 +3,12 @@
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackground.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/floors/protos/RectangleArena.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/computers/protos/DesktopComputer.proto"
 
 WorldInfo {
 }
 Viewpoint {
   orientation 0.4344180593394375 -0.3353461792748001 -0.8359568707568297 4.2657052333557886
-  position -0.05592781361788013 -1.0491062018948485 1.446019608226701
+  position 0.2510600303343648 -2.084179701804125 3.007141714920056
   follow "robot"
 }
 TexturedBackground {
@@ -141,10 +140,8 @@ Robot {
 }
 RectangleArena {
   floorSize 4 2
+  wallThickness 0.04
   wallHeight 0.2
-}
-DesktopComputer {
-  translation -1.04 -0.66 0
 }
 Solid {
   translation 0 0.73 0.19
@@ -174,6 +171,22 @@ Solid {
     }
   ]
   name "box(2)"
+  boundingObject USE Box
+  physics Physics {
+  }
+}
+Solid {
+  translation -0.93 -0.71 0.19
+  children [
+    DEF Box Shape {
+      appearance PBRAppearance {
+      }
+      geometry Box {
+        size 0.3 0.3 0.3
+      }
+    }
+  ]
+  name "box(3)"
   boundingObject USE Box
   physics Physics {
   }
